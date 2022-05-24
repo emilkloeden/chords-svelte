@@ -1,10 +1,8 @@
 <script context="module">
 	export const load = async ({ fetch, params }) => {
 		const { artist } = params;
-		console.log(artist);
 		const songs = await fetch(`/api/artist/${artist}.json`);
 		const allSongs = await songs.json();
-		console.log(allSongs);
 		return {
 			props: {
 				artist,
