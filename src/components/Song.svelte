@@ -4,8 +4,7 @@
     import ChordLine from './ChordLine.svelte';
 	export let content;
 	const lines = content.split('\n');
-    console.log(lines[0])
-    console.log(isBlockLine(lines[0]))
+
     const x = lines[0]
 </script>
 

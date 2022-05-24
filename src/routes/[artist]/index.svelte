@@ -1,15 +1,31 @@
+<script context="module">
+	export const load = async ({ fetch, params }) => {
+		const { artist } = params;
+		console.log(artist);
+		const songs = await fetch(`/api/artist/${artist}.json`);
+		const allSongs = await songs.json();
+		console.log(allSongs);
+		return {
+			props: {
+				artist,
+				allSongs
+			}
+		};
+	};
+</script>
+
 <script>
 	export let artist;
-	export let songTitles;
+	export let allSongs;
 </script>
 
 <article>
 	<h1 class="headingXl">{artist}</h1>
 	<ul class="list">
-		{#each songTitles as songTitle}
+		{#each allSongs as song}
 			<li class="listItem">
-				<a href="{artist}/{songTitle}">
-					{songTitle}
+				<a href={song.path}>
+					{song.meta.title}
 				</a>
 				<br />
 			</li>

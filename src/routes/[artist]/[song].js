@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 export async function get({ params }) {
     const chordsDirectory = path.join(process.cwd(), "src", "chords");
-    console.log(params)
+
     const { artist, song } = params;
     try {
         const fullPath = path.join(chordsDirectory, artist, `${song}.md`);
