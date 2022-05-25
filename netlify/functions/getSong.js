@@ -12,8 +12,8 @@ export const handler = async (event, context) => {
     const { content } = matterResult
     return {
         statusCode: 200,
-        body: {
+        body: JSON.stringify({
             content
-        }
+        })
     }
 }
