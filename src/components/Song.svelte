@@ -1,3 +1,23 @@
+<script context="module">
+    export const load = async ({ fetch, params }) => {
+        const {artist, song: title} = params
+        let url = new URL("./.netlify/functions/getSong")
+        url.search = new URLSearchParams({
+            artist,
+            title
+        })
+        const res = await fetch(url)
+        const data = await res.json()
+        console.log(`DATA!!! ${data}`)
+
+        return {
+            props: {
+                content 
+            }
+        }
+    }
+</script>
+
 <script>
 	import { isChordLine, isBlockLine } from '@emilkloeden/chordify';
 	import BlockLine from "./BlockLine.svelte"
