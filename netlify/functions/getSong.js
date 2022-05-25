@@ -6,14 +6,15 @@ export const handler = async (event, context) => {
     artist = artist.replace(".", "_")
     title = title.replace(".", "_")
     const filePath = `./netlify/functions/chords/${artist}/${title}.md`
-    const files = fs.readdirSync("./netlify/functions/chords/")
+    const files = fs.readdirSync("./netlify")
     return {
         statusCode: 200,
         body: JSON.stringify({
             message: "Test successful",
-            path: path.resolve(process.cwd(), filePath),
-            data: fs.readFileSync(filePath),
-            files
+            // path: path.resolve(process.cwd(), filePath),
+            // data: fs.readFileSync(filePath),
+            files,
+            context
         })
     }
 }
