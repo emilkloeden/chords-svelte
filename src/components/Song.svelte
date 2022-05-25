@@ -7,8 +7,10 @@
             title
         })
         const res = await fetch(url)
+        console.log(res)
         const data = await res.json()
         console.log(`DATA!!! ${data}`)
+        const { content } = data
 
         return {
             props: {
