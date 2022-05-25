@@ -6,7 +6,7 @@ export const handler = async (event, context) => {
     artist = artist.replace(".", "_")
     title = title.replace(".", "_")
     const filePath = `./netlify/functions/chords/${artist}/${title}.md`
-    const files = fs.readdirSync("./netlify")
+    const files = fs.readdirSync("./netlify/functions/")
     return {
         statusCode: 200,
         body: JSON.stringify({
