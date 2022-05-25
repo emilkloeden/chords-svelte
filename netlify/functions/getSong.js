@@ -1,5 +1,5 @@
 import fs from "fs"
-// import path from "path"
+import path from "path"
 
 export const handler = async (event, context) => {
     let { artist, title } = event.queryStringParameters;
@@ -11,7 +11,8 @@ export const handler = async (event, context) => {
         statusCode: 200,
         body: JSON.stringify({
             message: "Test successful",
-            data: fs.readFileSync(filePath),
+            path: path.resolve(process.cwd(), filePath),
+            // data: fs.readFileSync(filePath),
             files
         })
     }
