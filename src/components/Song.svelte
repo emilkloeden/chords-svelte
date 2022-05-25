@@ -1,7 +1,7 @@
 <script context="module">
     export const load = async ({ fetch, params }) => {
         const {artist, song: title} = params
-        let url = new URL("./.netlify/functions/getSong")
+        let url = new URL("https://adorable-liger-1769be.netlify.app/.netlify/functions/getSong")
         url.search = new URLSearchParams({
             artist,
             title
