@@ -3,6 +3,11 @@ import matter from "gray-matter";
 
 export const handler = async (event, context) => {
     let { artist, title } = event.queryStringParameters;
+    if (!artist || !title) {
+        return {
+            status: 404
+        }
+    }
     artist = artist.replace(".", "_")
     title = title.replace(".", "_")
     const filePath = `./netlify/functions/chords/${artist}/${title}.md`
