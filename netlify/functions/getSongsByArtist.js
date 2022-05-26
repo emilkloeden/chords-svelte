@@ -10,14 +10,19 @@ export const handler = async (event) => {
     artist = artist.replace(".", "_")
     const artistDirectory = `./netlify/functions/chords/${artist}`
     const fileNames = fs.readdirSync(artistDirectory)
-    const titles = fileNames.map(fileName => fileName.slice(0, -3))
-    const paths = titles.map(title => `/${artist}/${title}`)
+    const songs = fileNames.map(fileName => {
+        const title = fileName.slice(0, -3);
+        const path = `/${artist}/${title}`
+        return {
+            title,
+            path
+        }
+    })
     return {
         statusCode: 200,
         body: JSON.stringify({
             artist,
-            titles,
-            paths
+            songs
         }),
         headers: {
             "Content-Type": "application/json",

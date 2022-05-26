@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../Documents/code/chords-svelte/netlify/functions/getSongsByArtist copy.js"],
+  "sourceRoot": "C:/Users/Emil/AppData/Local/Temp/tmp-6600-DV59Gq63x6ba",
+  "sourcesContent": ["import fs from \"fs\"\r\n\r\nexport const handler = async (event) => {\r\n    let { artist } = event.queryStringParameters;\r\n    if (!artist) {\r\n        return {\r\n            status: 404\r\n        }\r\n    }\r\n    artist = artist.replace(\".\", \"_\")\r\n    const artistDirectory = `./netlify/functions/chords/${artist}`\r\n    const fileNames = fs.readdirSync(artistDirectory)\r\n    const songs = fileNames.map(fileName => {\r\n        const title = fileName.slice(0, -3);\r\n        const path = `/${artist}/${title}`\r\n        return {\r\n            title,\r\n            path\r\n        }\r\n    })\r\n    return {\r\n        statusCode: 200,\r\n        body: JSON.stringify({\r\n            artist,\r\n            songs\r\n        }),\r\n        headers: {\r\n            \"Content-Type\": \"application/json\",\r\n            \"Access-Control-Allow-Origin\": \"*\"\r\n        }\r\n    }\r\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA,gBAAe;AAER,IAAM,UAAU,OAAO,UAAU;AACpC,MAAI,EAAE,WAAW,MAAM;AACvB,MAAI,CAAC,QAAQ;AACT,WAAO;AAAA,MACH,QAAQ;AAAA,IACZ;AAAA,EACJ;AACA,WAAS,OAAO,QAAQ,KAAK,GAAG;AAChC,QAAM,kBAAkB,8BAA8B;AACtD,QAAM,YAAY,kBAAG,YAAY,eAAe;AAChD,QAAM,QAAQ,UAAU,IAAI,cAAY;AACpC,UAAM,QAAQ,SAAS,MAAM,GAAG,EAAE;AAClC,UAAM,OAAO,IAAI,UAAU;AAC3B,WAAO;AAAA,MACH;AAAA,MACA;AAAA,IACJ;AAAA,EACJ,CAAC;AACD,SAAO;AAAA,IACH,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU;AAAA,MACjB;AAAA,MACA;AAAA,IACJ,CAAC;AAAA,IACD,SAAS;AAAA,MACL,gBAAgB;AAAA,MAChB,+BAA+B;AAAA,IACnC;AAAA,EACJ;AACJ;",
+  "names": []
+}
