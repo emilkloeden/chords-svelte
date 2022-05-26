@@ -9,31 +9,38 @@
 		});
 		const res = await fetch(url);
 		const data = await res.json();
-		const { content } = data;
+		const { content, tabAuthor, tabAuthorUrl, originalUrl, capoFret } = data;
+		const metadata = {
+			tabAuthor,
+			tabAuthorUrl,
+			originalUrl,
+			capoFret
+		};
 		return {
 			props: {
 				content,
 				artist,
-				title
+				title,
+				metadata
 			}
 		};
 	};
 </script>
 
 <script>
+	import MetaData from '../../components/MetaData.svelte';
 	import Song from '../../components/Song.svelte';
 	export let artist;
 	export let title;
 	export let content;
+	export let metadata;
 </script>
 
 <article>
 	<h1 class="headingXl">{title}</h1>
 	<a href="/{artist}" class="lightText">{artist}</a>
+	<MetaData {metadata} />
 	<Song {content} />
-
-	<!-- <MetaData metadata={metadata} /> -->
-	<!-- <Song song={content} /> -->
 </article>
 
 <style></style>
