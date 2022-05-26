@@ -1,7 +1,7 @@
 import fs from "fs"
 import matter from "gray-matter";
 
-export const handler = async (event, context) => {
+export const handler = async (event) => {
     let { artist, title } = event.queryStringParameters;
     if (!artist || !title) {
         return {
@@ -18,7 +18,9 @@ export const handler = async (event, context) => {
     return {
         statusCode: 200,
         body: JSON.stringify({
-            content
+            content,
+            artist,
+            title
         }),
         headers: {
             "Content-Type": "application/json",

@@ -2,14 +2,15 @@
 	export const load = async ({ fetch, params }) => {
 		const { artist, song: title } = params;
 
-		let url = new URL('https://adorable-liger-1769be.netlify.app/.netlify/functions/getSong');
-		url.search = new URLSearchParams({
-			artist,
-			title
-		});
-		const res = await fetch(url);
-		const data = await res.json();
-		const { content } = data;
+		// let url = new URL('https://adorable-liger-1769be.netlify.app/.netlify/functions/getSong');
+		// url.search = new URLSearchParams({
+		// 	artist,
+		// 	title
+		// });
+		// const res = await fetch(url);
+		// const data = await res.json();
+		// const { content } = data;
+		let content = 'remote test';
 		return {
 			props: {
 				content,
