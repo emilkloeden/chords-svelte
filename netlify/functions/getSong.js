@@ -20,7 +20,8 @@ export const handler = async (event) => {
         body: JSON.stringify({
             content,
             artist,
-            title
+            title,
+            ...matterResult.data
         }),
         headers: {
             "Content-Type": "application/json",

@@ -1,5 +1,3 @@
-import path from "path"
-
 export const get = async ({ params }) => {
     // console.log(params)
     const { artist } = params
