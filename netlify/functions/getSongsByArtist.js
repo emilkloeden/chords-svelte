@@ -24,7 +24,7 @@ export const handler = async (event) => {
             songs
         }),
         headers: {
-            'Content-Type": "application/json",
+            "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
         }
     }
