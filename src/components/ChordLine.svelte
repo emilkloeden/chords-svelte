@@ -1,11 +1,12 @@
 <script>
-	import { chordifyLine } from '@emilkloeden/chordify';
+	import { chordifyLine, getKnownChords } from '@emilkloeden/chordify';
 	export let line;
 	const chords = chordifyLine(line);
+	const knownChords = getKnownChords()
 </script>
 
 {#each chords as { precedingSpaces, chord }}
-	{' '.repeat(precedingSpaces)}<span class="chord" data-finger-positioning="test\nxxx\test">{chord}</span>
+	{' '.repeat(precedingSpaces)}<span class="chord" data-finger-positioning={knownChords.get(chord)}>{chord}</span>
 {/each}
 
 <style>

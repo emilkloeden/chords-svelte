@@ -23,7 +23,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@emilkloeden/chordify": "^1.1.0",
+    "@emilkloeden/chordify": "^1.2.0",
     "gray-matter": "^4.0.3"
   }
 }
