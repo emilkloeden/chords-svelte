@@ -4,7 +4,7 @@ A portfolio project displaying guitar chords with finger-positions on-hover. Par
 
 <img src="screenshot.png" alt="Screenshot" title="Screenshot of Chords - Svelte main page" width="200px" style="border: 1px solid grey">
 
-This edition is built using [Svelte](https://svelte.dev/) and [SvelteKit](https://svelte.dev/) web framework.
+This edition is built using [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) web framework.
 
 Making use of:
 
